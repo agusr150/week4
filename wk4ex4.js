@@ -1,67 +1,46 @@
 function cariModus(arr) {
+
   // you can only write your code here!
-    let i = 0
-    let j = 0
-    let k = 0
-    let arr1 = []
-    let count =[]
-    let x = false
-    while (i<arr.length){
-        //console.log('i ='+i)
-        //console.log('count awal ='+count)
-        if (i===0){
-            arr1.push(arr[i])
-            count.push(1)
-        }        
-        else {
-            while (j<arr1.length){
-                if (arr[i]===arr1[j]){
-                    //console.log('j ='+j)
-                    count[j]++
-                    //console.log(count[j])
-                    x = true
+    var angka=[]
+    var qty =[]
+    var report =[angka,qty]
+
+    for (var i=0; i<arr.length; i++){
+        if(i===0){
+            angka.push(arr[i])
+            count = 1
+            qty.push(count)
+        }
+        else{
+            for(var j=0; j<angka.length;j++){
+                if(arr[i]!==angka[j]){
+                    tambah = true
+                }
+                else{
+                    qty[j] = qty[j]+1
+                    tambah =false
                     break
                 }
-                else {
-                    j++
-                }
             }
-            if  (x !== true){
-                arr1.push(arr[i])
-                count.push(1)
-            }  
+            if (tambah===true){
+                angka.push(arr[i])
+                //console.log(angka+"<<<angka")
+                count = 1
+                qty.push(count)
+            }
+        }      
+    }
+    var freq = 0
+    var modus = ''
+    for(var k=0;k<angka.length;k++){
+        if(qty[k]>freq){
+            modus = angka[k]
+            freq = qty[k]
         }
-
-        //console.log(count )
-        i++
-        j=0
     }
-    j = 1
-    temp = 0
-    while (j<count.length){
-        if (count[j]<count[temp]){
-            indexmod = temp
-        }
-        else {
-            indexmod = j
-            temp = j
-        }
-        j++
-    }
-    //console.log('index modus = '+temp)
-    if (arr1.length===1){
-        modus = -1
-    }
-    else if (count[temp]>1){
-        modus = arr1[temp]
-    }
-    else {
-        modus = -1
-    }
-    
-    
-    
-return modus
+    if(freq ===1){return -1}
+    if(angka.length===1){return -1}
+    return modus
 }
 
 // TEST CASES
