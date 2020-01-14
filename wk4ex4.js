@@ -3,7 +3,6 @@ function cariModus(arr) {
   // you can only write your code here!
     var angka=[]
     var qty =[]
-    var report =[angka,qty]
 
     for (var i=0; i<arr.length; i++){
         if(i===0){
@@ -24,7 +23,6 @@ function cariModus(arr) {
             }
             if (tambah===true){
                 angka.push(arr[i])
-                //console.log(angka+"<<<angka")
                 count = 1
                 qty.push(count)
             }
